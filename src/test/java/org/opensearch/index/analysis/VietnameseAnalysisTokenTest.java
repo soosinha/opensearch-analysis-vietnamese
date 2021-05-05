@@ -1,13 +1,14 @@
-package org.elasticsearch.index.analysis;
+package org.opensearch.index.analysis;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.index.analysis.NamedAnalyzer;
+import org.opensearch.test.OpenSearchTestCase;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
 
-public class VietnameseAnalysisTokenTest extends ESTestCase {
+public class VietnameseAnalysisTokenTest extends OpenSearchTestCase {
     public void testVietnameseTokenizer() throws IOException {
         inputToken("nguyễn văn bé nhỏ", new String[] {"nguyễn", "văn", "bé nhỏ"});
     }

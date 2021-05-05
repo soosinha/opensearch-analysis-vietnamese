@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis;
+package org.opensearch.index.analysis;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
@@ -6,13 +6,16 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.vi.VietnameseAnalyzer;
 import org.apache.lucene.analysis.vi.VietnameseTokenizer;
-import org.elasticsearch.Version;
-import org.elasticsearch.cluster.metadata.IndexMetadata;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.env.Environment;
-import org.elasticsearch.index.Index;
-import org.elasticsearch.plugin.analysis.vi.AnalysisVietnamesePlugin;
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.Version;
+import org.opensearch.cluster.metadata.IndexMetadata;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.env.Environment;
+import org.opensearch.index.Index;
+import org.opensearch.index.analysis.CustomAnalyzer;
+import org.opensearch.index.analysis.NamedAnalyzer;
+import org.opensearch.index.analysis.TokenizerFactory;
+import org.opensearch.plugin.analysis.vi.AnalysisVietnamesePlugin;
+import org.opensearch.test.OpenSearchTestCase;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -23,7 +26,7 @@ import static org.apache.lucene.analysis.BaseTokenStreamTestCase.assertTokenStre
 /**
  * Created by duydo on 2/19/17.
  */
-public class VietnameseAnalysisTest extends ESTestCase {
+public class VietnameseAnalysisTest extends OpenSearchTestCase {
 
     public void testSimpleVietnameseAnalysis() throws IOException {
         TestAnalysis analysis = createTestAnalysis();
@@ -73,7 +76,7 @@ public class VietnameseAnalysisTest extends ESTestCase {
     }
 
     public static TestAnalysis createTestAnalysis() throws IOException {
-        String json = "/org/elasticsearch/index/analysis/vi_analysis.json";
+        String json = "/org/opensearch/index/analysis/vi_analysis.json";
         Settings settings = Settings.builder()
                 .loadFromStream(json, VietnameseAnalysisTest.class.getResourceAsStream(json), true)
                 .put(IndexMetadata.SETTING_VERSION_CREATED, Version.CURRENT)

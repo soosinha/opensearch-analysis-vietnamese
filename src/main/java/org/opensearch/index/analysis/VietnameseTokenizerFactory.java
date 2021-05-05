@@ -12,16 +12,17 @@
  * the License.
  */
 
-package org.elasticsearch.index.analysis;
+package org.opensearch.index.analysis;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.vi.VietnameseTokenizer;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.env.Environment;
-import org.elasticsearch.index.IndexSettings;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.env.Environment;
+import org.opensearch.index.IndexSettings;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+import org.opensearch.index.analysis.AbstractTokenizerFactory;
 
 /**
  * @author duydo

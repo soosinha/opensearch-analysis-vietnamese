@@ -1,20 +1,20 @@
-Vietnamese Analysis Plugin for Elasticsearch
+Vietnamese Analysis Plugin for OpenSearch
 ========================================
 
-Vietnamese Analysis plugin integrates Vietnamese language analysis into Elasticsearch.
+Vietnamese Analysis plugin integrates Vietnamese language analysis into OpenSearch.
 
 The plugin provides the `vi_analyzer` analyzer and `vi_tokenizer` tokenizer. The `vi_analyzer` is composed of the `vi_tokenizer` tokenizer, the `lowercase` and `stop` filter.
 
 
-## Installation on Elasticsearch 5.x
+## Installation on OpenSearch
 
-In order to install the plugin, choose a version in [releases](https://github.com/duydo/elasticsearch-analysis-vietnamese/releases) page then run:
+In order to install the plugin, choose a version in [releases](https://github.com/soosinha/opensearch-analysis-vietnamese/releases) page then run:
 
 ```sh
-bin/elasticsearch-plugin install link/to/binary/version
+bin/opensearch-plugin install link/to/binary/version
 ```
 ## Build from Source
-Check this post: [How to build Elasticsearch Vietnamese Analysis Plugin](http://duydo.me/how-to-build-elasticsearch-vietnamese-analysis-plugin/)
+Check this post: [How to build OpenSearch Vietnamese Analysis Plugin](http://duydo.me/how-to-build-elasticsearch-vietnamese-analysis-plugin/)
 
 ## Sample Usage
 
@@ -63,38 +63,13 @@ Result
 }
 ```
 
-If testing failed, consider restarting the elastic service to reload the plugin.
+If testing failed, consider restarting the opensearch service to reload the plugin.
 
 ## Compatible Versions
-| Vietnamese Analysis Plugin | Elasticsearch |
+| Vietnamese Analysis Plugin | OpenSearch |
 | -------------------------- | ------------- |
-| master                     | 7.3.1         |
-| 7.5.1                      | 7.5.1         |   
-| 7.4.1                      | 7.4.1         |   
-| 7.4.0                      | 7.4.0         |   
-| 7.3.2                      | 7.3.2         |   
-| 7.3.1                      | 7.3.1         |   
-| 5.6.5                      | 5.6.5         |
-| 5.4.1                      | 5.4.1         |
-| 5.3.1                      | 5.3.1         |
-| 5.2.1                      | 5.2.1         |
-| 2.4.1                      | 2.4.1         |
-| 2.4.0                      | 2.4.0         |
-| 2.3.5                      | 2.3.5         |
-| 2.3.4                      | 2.3.4         |
-| 2.3.3                      | 2.3.3         |
-| 2.3.2                      | 2.3.2         |
-| 2.3.1                      | 2.3.1         |
-| 2.3.0                      | 2.3.0         |
-| 0.2.2                      | 2.2.0         |
-| 0.2.1.1                    | 2.1.1         |
-| 0.2.1                      | 2.1.0         |
-| 0.2                        | 2.0.0         |
-| 0.1.7                      | 1.7+          |
-| 0.1.6                      | 1.6+          |
-| 0.1.5                      | 1.5+          |
-| 0.1.1                      | 1.4+          |
-| 0.1                        | 1.3           |
+| master                     | 1.0.0         |
+| 1.0.0                      | 1.0.0         |
 
 ## Thanks to
 - [Lê Hồng Phương](http://mim.hus.vnu.edu.vn/phuonglh/) for his VnTokenizer library
