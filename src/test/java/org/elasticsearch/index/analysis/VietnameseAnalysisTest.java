@@ -7,7 +7,7 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.vi.VietnameseAnalyzer;
 import org.apache.lucene.analysis.vi.VietnameseTokenizer;
 import org.elasticsearch.Version;
-import org.elasticsearch.cluster.metadata.IndexMetaData;
+import org.elasticsearch.cluster.metadata.IndexMetadata;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.index.Index;
@@ -76,7 +76,7 @@ public class VietnameseAnalysisTest extends ESTestCase {
         String json = "/org/elasticsearch/index/analysis/vi_analysis.json";
         Settings settings = Settings.builder()
                 .loadFromStream(json, VietnameseAnalysisTest.class.getResourceAsStream(json), true)
-                .put(IndexMetaData.SETTING_VERSION_CREATED, Version.CURRENT)
+                .put(IndexMetadata.SETTING_VERSION_CREATED, Version.CURRENT)
                 .build();
         Settings nodeSettings = Settings.builder().put(Environment.PATH_HOME_SETTING.getKey(), createTempDir()).build();
         return createTestAnalysis(new Index("test", "_na_"), nodeSettings, settings, new AnalysisVietnamesePlugin());

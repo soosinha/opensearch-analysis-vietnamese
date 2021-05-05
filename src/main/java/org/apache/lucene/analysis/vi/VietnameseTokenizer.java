@@ -14,6 +14,9 @@
 
 package org.apache.lucene.analysis.vi;
 
+import java.security.AccessController;
+import java.security.PrivilegedActionException;
+import java.security.PrivilegedExceptionAction;
 import org.apache.commons.io.IOUtils;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -54,9 +57,19 @@ public class VietnameseTokenizer extends Tokenizer {
 
     private void tokenize() throws IOException {
         inputText = IOUtils.toString(input);
-        final List<TaggedWord> result = tokenizer.tokenize(new StringReader(inputText));
-        if (result != null) {
-            pending.addAll(result);
+        try {
+            final List<TaggedWord> result = AccessController.doPrivileged(
+                new PrivilegedExceptionAction<List<TaggedWord>>() {
+                    @Override
+                    public List<TaggedWord> run() throws IOException {
+                        return tokenizer.tokenize(new StringReader(inputText));
+                    }
+                });
+            if (result != null) {
+                pending.addAll(result);
+            }
+        } catch (PrivilegedActionException e) {
+            throw (IOException) e.getException();
         }
     }
 
