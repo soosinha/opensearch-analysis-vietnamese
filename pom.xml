@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.opensearch</groupId>
             <artifactId>opensearch</artifactId>
-            <version>${opensearch.version}-SNAPSHOT</version>
+            <version>${opensearch.version}-beta1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>org.opensearch.test</groupId>
             <artifactId>framework</artifactId>
-            <version>${opensearch.version}-SNAPSHOT</version>
+            <version>${opensearch.version}-beta1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
